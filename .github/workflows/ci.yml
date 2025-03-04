@@ -1,0 +1,15 @@
+name: CI (Integración Continua)
+on:
+  push:
+    branches: [ main ] # Ejecutar solo en la rama main
+  pull_request:
+    branches: [ main ] # Ejecutar también en pull requests hacia main
+jobs:
+  build:
+    runs-on: ubuntu-latest # Usar Ubuntu como entorno de ejecución
+    steps:
+      - uses: actions/checkout@v2 # Clonar el repositorio
+      - name: Instalar dependencias
+        run: npm install # Ejemplo para proyectos Node.js
+      - name: Ejecutar pruebas
+        run: npm test # Ejemplo para proyectos Node.js
